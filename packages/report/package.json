@@ -1,8 +1,12 @@
 {
-  "name": "@allure/components",
+  "name": "@allure/report",
   "version": "1.0.0",
+  "license": "Apache-2.0",
   "main": "dist/index",
   "types": "dist/index",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
@@ -10,12 +14,12 @@
     "prepublishOnly": "yarn run build",
     "test": "yarn run build"
   },
-  "peerDependencies": {
-    "react": "~17.0.0"
-  },
   "dependencies": {
+    "@allure/reader-api": "^1.0.0"
   },
   "devDependencies": {
-    "@types/react": "~17.0.0"
+    "chokidar": "^3.5.1",
+    "rimraf": "~3.0.2",
+    "typescript": "~4.2.0"
   }
 }

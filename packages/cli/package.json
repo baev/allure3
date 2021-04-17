@@ -1,0 +1,34 @@
+{
+  "name": "@allure/cli",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json && pkg .",
+    "prepublishOnly": "yarn run build",
+    "test": "yarn run build"
+  },
+  "bin": {
+    "pkg": "dist/index.js"
+  },
+  "pkg": {
+    "targets": [ "node12-macos-x64" ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "@allure/core": "^1.0.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/yargs": "^16.0.1",
+    "pkg": "^4.5.1",
+    "rimraf": "~3.0.2",
+    "typescript": "~4.2.0"
+  }
+}
